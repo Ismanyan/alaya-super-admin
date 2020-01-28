@@ -41,11 +41,11 @@ class Auth extends CI_Controller
 
         if ($response['code'] === 200 && $response['body']->result->position_id == 3) {
             $sessionData = array(
-                'password_super' => true,
-                'role'      => 3,
-                'fullname'  => $response['body']->result->fullname,
-                'pin_super' => $response['body']->result->pin,
-                'token'     => $response['body']->result->api_token
+                'password_super'  => true,
+                'role_super'      => 3,
+                'fullname_super'  => $response['body']->result->fullname,
+                'pin_super'       => $response['body']->result->pin,
+                'token_super'     => $response['body']->result->api_token
             );
 
             $this->session->set_userdata($sessionData);

@@ -14,7 +14,7 @@ class Treatment extends CI_Controller
             redirect(base_url('login'));
         }
 
-        $this->TOKEN = $this->session->token;
+        $this->TOKEN = $this->session->token_super;
         $this->API = getenv('REST_URL');
     }
 

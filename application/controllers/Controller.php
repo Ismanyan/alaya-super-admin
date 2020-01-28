@@ -32,7 +32,7 @@ class Controller extends CI_Controller
     // CLEAR SESSION
     public function logout()
     {
-        $sessionData = array('password', 'role', 'fullname', 'pin', 'logged_in');
+        $sessionData = array('password_super', 'role_super', 'fullname_super', 'pin_super', 'logged_in_super', 'token_super');
 
         $this->session->unset_userdata($sessionData);
         $this->session->sess_destroy();

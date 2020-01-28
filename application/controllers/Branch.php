@@ -38,9 +38,9 @@ class Branch extends CI_Controller
         if ($response['code'] == 200) {
             notif('success', 'Successfully Deleted Branch', 'successfully Deleted Branch', 'branch');
         } else {
-            var_dump($this->TOKEN);
-            var_dump($response);
-            // notif('error', 'Delete Branch Failed', 'Something is wrong, Please try again', 'branch');
+            // var_dump($this->TOKEN);
+            // var_dump($response);
+            notif('error', 'Delete Branch Failed', 'Something is wrong, Please try again', 'branch');
         }
     }
 
@@ -53,8 +53,8 @@ class Branch extends CI_Controller
         if ($response['code'] == 200) {
             notif('success', 'Successfully Added', 'New Branch successfully added', 'branch');
         } else {
-            var_dump($response);
-            // notif('error', 'Add Branch Failed', 'Something is wrong, Please try again', 'branch');
+            // var_dump($response);
+            notif('error', 'Add Branch Failed', 'Something is wrong, Please try again', 'branch');
         }
     }
 
@@ -79,9 +79,9 @@ class Branch extends CI_Controller
         if ($response['code'] == 200) {
             notif('success', 'Branch Edited successfully', 'Edit User successfully', 'branch');
         } else {
-            var_dump($this->TOKEN);
-            var_dump($response);
-            // notif('error', 'Failed to edit', 'Something is wrong, Please try again', 'branch');
+            // var_dump($this->TOKEN);
+            // var_dump($response);
+            notif('error', 'Failed to edit', 'Something is wrong, Please try again', 'branch');
         }
     }
 }

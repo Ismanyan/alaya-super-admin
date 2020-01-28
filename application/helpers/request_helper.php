@@ -10,7 +10,7 @@ if (!function_exists('request()')) {
     {
         $CI = &get_instance();
         $CI->load->library('session');
-        $token = $CI->session->token;
+        $token = $CI->session->token_super;
 
         $headers = array('Accept' => 'application/json');
         $url .= '?api_token='.$token;
@@ -23,7 +23,7 @@ if (!function_exists('request()')) {
     {
         $CI = &get_instance();
         $CI->load->library('session');
-        $token = $CI->session->token;
+        $token = $CI->session->token_super;
         
         $headers = array('Accept' => 'application/json');
         
@@ -47,7 +47,7 @@ if (!function_exists('request()')) {
     {
         $CI = &get_instance();
         $CI->load->library('session');
-        $token = $CI->session->token;
+        $token = $CI->session->token_super;
         
         $headers = array('Accept' => 'application/json');
         $url .= '?api_token=' . $token;
@@ -73,7 +73,7 @@ if (!function_exists('request()')) {
     {
         $CI = &get_instance();
         $CI->load->library('session');
-        $token = $CI->session->token;
+        $token = $CI->session->token_super;
         
         $headers = array('Accept' => 'application/json');
         $url .= '&api_token=' . $token;
