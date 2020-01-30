@@ -79,8 +79,8 @@ class Users extends CI_Controller
         if ($response['code'] == 200) {
             notif('success', 'Edited successfully', 'Edit User successfully', 'users');
         } else {
-            var_dump($response);
-            // notif('error', 'Failed to edit', 'Something is wrong, Please try again', 'users');
+            // var_dump($response);
+            notif('error', 'Failed to edit', 'Something is wrong, Please try again', 'users');
         }
     }
 

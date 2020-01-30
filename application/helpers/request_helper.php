@@ -78,7 +78,7 @@ if (!function_exists('request()')) {
         $headers = array('Accept' => 'application/json');
         $url .= '&api_token=' . $token;
 
-        var_dump($url);
+        // var_dump($url);
 
         $response = Unirest\Request::PUT($url, $headers, $query);
 

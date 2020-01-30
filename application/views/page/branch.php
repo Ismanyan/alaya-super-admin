@@ -47,13 +47,66 @@
                                                 <td><?= $key->branch_name ?></td>
                                                 <td><?= $key->phone ?></td>
                                                 <td><?= $key->open_hour ?> s/d <?= $key->closing_time ?> WIB</td>
-                                                <td><a href="<?= $key->map_url ?>">Google Map</a></td>
+                                                <td><a href="<?= $key->map_url ?>" target="_blank">Google Map</a></td>
                                                 <td>
-                                                    <!-- <a href=""><span class="badge badge-success"><i class="fas fa-eye"></i></span></a> -->
+                                                    <a href="#" data-toggle="modal" data-target="#branchView<?= $key->id ?>"><span class="badge badge-success"><i class="fas fa-eye"></i></span></a>
                                                     <a href="#" data-toggle="modal" data-target="#branchEdit<?= $key->id ?>"><span class="badge badge-warning"><i class="fas fa-edit"></i></span></a>
                                                     <a href="<?= base_url('branch/delete/') . $key->id ?>"><span class="badge badge-danger"><i class="fas fa-trash"></i></span></a>
                                                 </td>
                                             </tr>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="branchView<?= $key->id ?>" tabindex="-1" role="dialog" aria-labelledby="branchView" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="branchEdit">Branch View</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <input type="hidden" name="id" value="<?= $key->id ?>">
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label for="branch_name">Branch Name</label>
+                                                                <input type="text" class="form-control" id="branch_name" required name="branch_name" value="<?= $key->branch_name ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="phone">Phone Number</label>
+                                                                <input type="text" class="form-control" id="phone" required name="phone" value="<?= $key->phone ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="map_url">Google Map Url</label>
+                                                                <input type="text" class="form-control" id="map_url" required name="map_url" value="<?= $key->map_url ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="latitude">Latitude</label>
+                                                                <input type="text" class="form-control" id="latitude" required name="latitude" value="<?= $key->latitude ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="longitude">Longitude</label>
+                                                                <input type="text" class="form-control" id="longitude" required name="longitude" value="<?= $key->longitude ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="open_hour">Open Hour</label>
+                                                                <input type="text" class="form-control" id="open_hour" required name="open_hour" value="<?= $key->open_hour ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="closing_time">Closed Time</label>
+                                                                <input type="text" class="form-control" id="closing_time" required name="closing_time" value="<?= $key->closing_time ?>" disabled>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="address">Address</label>
+                                                                <textarea class="form-control" id="address" rows="3" required name="address" disabled><?= $key->address ?></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <!-- Modal -->
                                             <div class="modal fade" id="branchEdit<?= $key->id ?>" tabindex="-1" role="dialog" aria-labelledby="branchEdit" aria-hidden="true">

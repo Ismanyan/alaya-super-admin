@@ -47,10 +47,51 @@
                                                 <td><?= $key->treatment_duration ?> Minute</td>
                                                 <td>Rp.<?= $key->treatment_price ?></td>
                                                 <td>
-                                                    <a href="#" data-toggle="modal" data-target="#addPrice<?= $key->treatment_price_id ?>"><span class="badge badge-success"><i class="fas fa-plus-square"></i></span></a>
+                                                    <a href="#" data-toggle="modal" data-target="#PriceView<?= $key->treatment_price_id ?>"><span class="badge badge-success"><i class="fas fa-eye"></i></span></a>
+                                                    <a href="#" data-toggle="modal" data-target="#addPrice<?= $key->treatment_price_id ?>"><span class="badge badge-warning"><i class="fas fa-plus-square"></i></span></a>
                                                     <a href="<?= base_url('treatment/delete/') . $key->treatment_price_id ?>"><span class="badge badge-danger" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fas fa-trash"></i></span></a>
                                                 </td>
                                             </tr>
+
+
+                                            <!-- Modal Add Price-->
+                                            <div class="modal fade" id="PriceView<?= $key->treatment_price_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Treatment Detail</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form action="<?= base_url('treatment/add/price') ?>" method="post">
+                                                            <div class="modal-body">
+                                                                <input type="hidden" name="treatment_id" value="<?= $key->treatment_id ?>">
+                                                                <div class="form-group">
+                                                                    <label for="treatment_name">Treatment Name</label>
+                                                                    <input type="text" class="form-control" id="treatment_name" value="<?= $key->treatment_name ?>" readonly>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="treatment_desc">Treatment Description</label>
+                                                                    <textarea class="form-control" id="treatment_desc" rows="4" readonly><?= $key->treatment_desc ?></textarea>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="treatment_duration">Treatment Duration</label>
+                                                                    <input type="text" class="form-control" id="treatment_duration" name="treatment_duration" required value="<?= $key->treatment_duration ?> Minute">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="treatment_price">Treatment Price</label>
+                                                                    <input type="text" class="form-control" id="treatment_price" name="treatment_price" required value="Rp.<?= $key->treatment_price ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <!-- Modal Add Price-->
                                             <div class="modal fade" id="addPrice<?= $key->treatment_price_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

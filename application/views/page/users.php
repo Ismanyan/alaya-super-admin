@@ -52,11 +52,81 @@
                                                 <td><?= $key->branch_name ?></td>
                                                 <td><?= $key->position_name ?></td>
                                                 <td>
-                                                    <!-- <a href=""><span class="badge badge-success"><i class="fas fa-eye"></i></span></a> -->
+                                                    <a href="#" data-toggle="modal" data-target="#UserView<?= $key->id_user ?>"><span class="badge badge-success"><i class="fas fa-eye"></i></span></a>
                                                     <a href="#" data-toggle="modal" data-target="#UserEdit<?= $key->id_user ?>"><span class="badge badge-warning"><i class="fas fa-edit"></i></span></a>
                                                     <a href="<?= base_url('user/delete/') . $key->id_user ?>"><span class="badge badge-danger" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fas fa-trash"></i></span></a>
                                                 </td>
                                             </tr>
+
+                                            <!-- Modal EDIT -->
+                                            <div class="modal fade" id="UserView<?= $key->id_user ?>" tabindex="-1" role="dialog" aria-labelledby="UserLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="titleModal">View User</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+
+                                                        </div>
+                                                        <form action="<?= base_url('user/edit/') ?>" method="post">
+                                                            <div class="modal-body">
+                                                                <input type="hidden" value="<?= $key->id_user ?>" name="id">
+                                                                <div class="form-group">
+                                                                    <label for="user_id">User ID</label>
+                                                                    <input type="text" class="form-control" id="user_id" required name="user_id" value="<?= $key->user_id ?>" disabled>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="fullName">Name</label>
+                                                                    <input type="text" class="form-control" id="fullName" required name="fullname" value="<?= $key->fullname ?>" disabled>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="phone">Phone Number</label>
+                                                                    <input type="text" class="form-control" id="phone" required name="phone" value="<?= $key->phone ?>" disabled>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="email">Email</label>
+                                                                    <input type="email" class="form-control" id="email" required name="email" value="<?= $key->email ?>" disabled>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="pin">Pin</label>
+                                                                    <input type="text" class="form-control" id="pin" required name="pin" value="<?= $key->pin ?>" disabled>
+                                                                    <small id="pin" class="form-text text-muted">a maximum of 6 digit pins</small>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="password">Password</label>
+                                                                    <input type="password" class="form-control" id="password" required name="password" value="lorem" disabled>
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <label for="position_id">Position</label>
+                                                                    <input type="text" class="form-control" id="position_id" required name="position_id" value="<?= $key->position_name ?>" disabled>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="Branch">Branch</label>
+                                                                    <input type="text" class="form-control" id="Branch" required name="Branch" value="<?= $key->branch_name ?>" disabled>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="address">Address</label>
+                                                                    <textarea class="form-control" id="address" rows="3" required name="address" disabled><?= $key->address ?></textarea>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                             <!-- Modal EDIT -->
                                             <div class="modal fade" id="UserEdit<?= $key->id_user ?>" tabindex="-1" role="dialog" aria-labelledby="UserLabel" aria-hidden="true">
@@ -87,10 +157,10 @@
                                                                     <input type="text" class="form-control" id="phone" required name="phone" value="<?= $key->phone ?>">
                                                                 </div>
 
-                                                                <!-- <div class="form-group">
+                                                                <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="email" class="form-control" id="email" required name="email">
-                                                                </div> -->
+                                                                    <input type="email" class="form-control" id="email" required name="email" value="<?= $key->email ?>">
+                                                                </div>
 
                                                                 <div class="form-group">
                                                                     <label for="pin">Pin</label>
@@ -181,10 +251,10 @@
                             <input type="text" class="form-control" id="phone" required name="phone">
                         </div>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" required name="email">
-                        </div> -->
+                        </div>
 
                         <div class="form-group">
                             <label for="pin">Pin</label>
